@@ -1,8 +1,9 @@
 *
+!*/
 !README.md
 !LICENSE
 !.gitignore
-!src/
-!include/
-!test/
+!src/**
+!include/**
+!test/**
 
