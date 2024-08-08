@@ -3,12 +3,22 @@
  * Resizeable array data structure allocated in the heap
  * where the size and capacity are stored in a header
  * located before the first element of the array.
+ * 
+ * Can store primitive types and structs.
+ * Cannot store arrays or typedefs of arrays.
+ * 
+ * Example:
+ *      int* vec = vec_init(int);
+ *      vec_push(vec, 10);
+ *      printf("%d\n", vec[0]);
+ *      vec_free(vec);
+ * 
  */
 
 #ifndef DATALIB_VEC
 #define DATALIB_VEC
 
-#include "stdlib.h" /* size_t */
+#include "stdlib.h" /* for size_t */
 
 /* --- Macro functions --- */
 
@@ -39,7 +49,7 @@
 #define vec_push(V, E) \
     do { \
         void* temp__ = _vec_resize((V), sizeof(*(V)), vec_size((V))+1); \
-        if(temp__) { (V) = temp__; *vec_last(V) = (E); } \
+        if(temp__) { (V) = temp__; (V)[vec_size((V))-1] = (E); } \
     } while(0)
 
 /* Adds a new element E at the front of a vector V */
