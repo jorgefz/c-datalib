@@ -58,6 +58,22 @@ void test_vec_push(){
     vec_free(v);
 }
 
+void test_vec_push_front(){
+    /*
+    int* v = vec_init(int);
+    vec_push_front(v, 10);
+    assert(v);
+    assert(vec_size(v) == 1);
+    assert(v[0] == 10);
+    vec_push_front(v, 99);
+    assert(v);
+    assert(vec_size(v) == 2);
+    assert(v[0] == 99);
+    assert(v[1] == 10);
+    vec_free(v);
+    */
+}
+
 void test_vec_pop(){
     int* v = vec_init(int);
     vec_push(v, 5);
@@ -69,6 +85,20 @@ void test_vec_pop(){
     assert(vec_last(v) == v);
     assert(vec_end(v) == v + 1);
     assert(v[0] == 5);
+    vec_free(v);
+}
+
+void test_vec_pop_front(){
+    int* v = vec_init(int);
+    vec_pop_front(v);
+    assert(vec_size(v) == 0);
+    vec_push(v, 100);
+    vec_push(v, 200);
+    vec_pop_front(v);
+    assert(vec_size(v) == 1);
+    assert(v[0] == 200);
+    vec_pop_front(v);
+    assert(vec_size(v) == 0);
     vec_free(v);
 }
 
@@ -117,7 +147,6 @@ void test_vec_insert_back(){
     vec_push(v, 1);
     vec_push(v, 2);
     vec_insert(v, vec_size(v), 99);
-    _debug_print_vec(v);
     assert(v);
     assert(vec_size(v) == 4);
     assert(v[0] == 0);
@@ -130,13 +159,27 @@ void test_vec_insert_back(){
 void test_vec_insert_empty(){
     int* v = vec_init(int);
     vec_insert(v, 0, 99);
-    _debug_print_vec(v);
     assert(v);
     assert(vec_size(v) == 1);
     assert(v[0] == 99);
     vec_free(v); 
 }
 
+void test_vec_delete(){
+
+}
+
+void test_vec_delete_front(){
+
+}
+
+void test_vec_delete_back(){
+
+}
+
+void test_vec_delete_empty(){
+
+}
 
 
 void test_vec_run_all(){
@@ -145,12 +188,18 @@ void test_vec_run_all(){
     test_vec_init_str();
     test_vec_resize();
     test_vec_push();
+    test_vec_push_front();
     test_vec_pop();
+    test_vec_pop_front();
     test_vec_clear();
     test_vec_insert();
     test_vec_insert_front();
     test_vec_insert_back();
     test_vec_insert_empty();
+    test_vec_delete();
+    test_vec_delete_front();
+    test_vec_delete_back();
+    test_vec_delete_empty();
 
     printf("vec tests passed\n");
 }
