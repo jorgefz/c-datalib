@@ -134,7 +134,7 @@ void* _vec_insert(void* vec, size_t item_size, size_t index){
 
     size_t src = index * item_size;
     size_t dest = src + item_size;
-    size_t n = (header->size - index) * item_size;
+    size_t n = (header->size - index - 1) * item_size;
     DATALIB_MEMMOVE(header->data + dest, header->data + src, n);
 
     return vec;
