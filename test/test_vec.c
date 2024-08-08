@@ -59,7 +59,6 @@ void test_vec_push(){
 }
 
 void test_vec_push_front(){
-    /*
     int* v = vec_init(int);
     vec_push_front(v, 10);
     assert(v);
@@ -70,8 +69,7 @@ void test_vec_push_front(){
     assert(vec_size(v) == 2);
     assert(v[0] == 99);
     assert(v[1] == 10);
-    vec_free(v);
-    */
+    vec_free(v);   
 }
 
 void test_vec_pop(){
