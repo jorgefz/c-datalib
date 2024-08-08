@@ -25,23 +25,21 @@
 #define vec_resize(V, S) \
     do { \
         void* temp__ = _vec_resize((V), sizeof(*(V)), (S)); \
-        (V) = temp__; \
+        if(temp__) (V) = temp__; \
     } while(0)
 
 #define vec_insert(V, I, E) \
     do { \
         size_t idx__ = (I); \
         void* temp__ =  _vec_insert((V), sizeof(*(V)), idx__); \
-        (V) = temp__; \
-        (V)[idx__] = (E); \
+        if(temp__) { (V) = temp__; (V)[idx__] = (E); } \
     } while(0)
 
 /* Appends a new element E to a vector V */
 #define vec_push(V, E) \
     do { \
         void* temp__ = _vec_resize((V), sizeof(*(V)), vec_size((V))+1); \
-        (V) = temp__; \
-        *vec_last(V) = (E); \
+        if(temp__) { (V) = temp__; *vec_last(V) = (E); } \
     } while(0)
 
 /* Adds a new element E at the front of a vector V */
