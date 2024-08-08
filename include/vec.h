@@ -44,7 +44,17 @@
         *vec_last(V) = (E); \
     } while(0)
 
+/* Adds a new element E at the front of a vector V */
 #define vec_push_front(V, E) vec_insert((V), 0, (E))
+
+/* Removes the first element of a vector V */
+#define vec_pop_front(V) _vec_pop_front((V), sizeof(*(V)))
+
+/* Removes the item at index I from a vector V */
+#define vec_delete(V, I) _vec_delete((V), sizeof(*(V)), (I))
+
+/* Makes a copy of a vector V */
+#define vec_copy(V) _vec_copy((V), sizeof(*(V)))
 
 
 /* --- Public functions --- */
@@ -67,15 +77,9 @@ void vec_free(void* vec);
 /* Removes the last element of a vector `vec` */
 void vec_pop(void* vec);
 
-/* Removes the first element of a vector `vec` */
-void vec_pop_front(void* vec);
-
-/* Removes the item at index `index` from a vector `vec` */
-void vec_delete(void* vec, size_t index);
-
 
 /* --- Private functions --- */ 
-/*     Access via macros     */
+/*       Use via macros     */
 
 /* Initialise a new vector with a given element size */
 void* _vec_init(size_t item_size);
@@ -88,6 +92,12 @@ void* _vec_resize(void* vec, size_t item_size, size_t size);
 
 /* Makes space for a new element at index `index` in a vector `vec` */
 void* _vec_insert(void* vec, size_t item_size, size_t index);
+
+/* Removes the first element of a vector `vec` */
+void _vec_pop_front(void* vec, size_t item_size);
+
+/* Removes the item at index `index` from a vector `vec` */
+void _vec_delete(void* vec, size_t item_size, size_t index);
 
 /* Makes a copy of a vector `vec` */
 void* _vec_copy(void* vec, size_t item_size);
