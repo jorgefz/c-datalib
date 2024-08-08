@@ -14,7 +14,7 @@ void _debug_print_vec(int* vec){
     printf("]\n");
 }
 
-void test_vec_init_int(){
+void test_vec_init(){
     int* v = vec_init(int);
     assert(v);
     assert(vec_size(v) == 0);
@@ -23,16 +23,6 @@ void test_vec_init_int(){
     assert(vec_end(v) == v);
     assert(vec_empty(v));
     vec_free(v);
-}
-
-void test_vec_init_str(){
-    char* strings = vec_init(char[16]);
-    assert(strings);
-    assert(vec_size(strings) == 0);
-    assert(vec_capacity(strings) == 0);
-    assert(vec_last(strings) == strings);
-    assert(vec_end(strings) == strings);
-    vec_free(strings);
 }
 
 void test_vec_resize(){
@@ -164,26 +154,45 @@ void test_vec_insert_empty(){
 }
 
 void test_vec_delete(){
+    int* v = vec_init(int);
 
+    vec_free(v);
 }
 
 void test_vec_delete_front(){
-
+    int* v = vec_init(int);
+    vec_free(v);
 }
 
 void test_vec_delete_back(){
-
+    int* v = vec_init(int);
+    vec_free(v);
 }
 
 void test_vec_delete_empty(){
+    int* v = vec_init(int);
+    vec_free(v);
+}
 
+
+void test_vec_of_structs(){
+    struct data {int a; float b; char c;};
+    struct data* data = vec_init(struct data);
+    assert(data);
+    assert(vec_size(data) == 0);
+
+    struct data elem = {1, 10.0, 'a'};
+    vec_push(data, elem);
+    assert(vec_size(data) == 1);
+    assert(memcmp(&data[0],&elem,sizeof(elem))==0);
+
+    vec_free(data);
 }
 
 
 void test_vec_run_all(){
 
-    test_vec_init_int();
-    test_vec_init_str();
+    test_vec_init();
     test_vec_resize();
     test_vec_push();
     test_vec_push_front();
@@ -198,6 +207,7 @@ void test_vec_run_all(){
     test_vec_delete_front();
     test_vec_delete_back();
     test_vec_delete_empty();
+    test_vec_of_structs();
 
     printf("vec tests passed\n");
 }
