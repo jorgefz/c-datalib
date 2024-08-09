@@ -1,5 +1,6 @@
 #include "vec.h"
 #include "stdio.h"
+#include "string.h"
 #include "assert.h"
 
 void _debug_print_vec(int* vec){
