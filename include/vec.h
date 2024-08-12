@@ -15,10 +15,10 @@
  * 
  */
 
-#ifndef DATALIB_VEC
-#define DATALIB_VEC
+#ifndef DATALIB_VEC_H
+#define DATALIB_VEC_H
 
-#include "stdlib.h" /* for size_t */
+#include "defs.h"
 
 /* --- Macro functions --- */
 
@@ -112,4 +112,4 @@ void* _vec_copy(void* vec, size_t item_size);
 
 
 
-#endif /* DATALIB_VEC */
+#endif /* DATALIB_VEC_H */

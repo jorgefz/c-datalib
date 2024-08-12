@@ -1,13 +1,6 @@
 #include "vec.h"
 
 
-#include "stdlib.h" /* malloc, free */
-#include "string.h" /* memmove */
-#define DATALIB_ALLOC malloc
-#define DATALIB_FREE  free
-#define DATALIB_MEMMOVE memmove
-
-
 /* Header of a vector where its metadata is stored */
 struct vec_header {
     size_t size;     /* Number of elements */

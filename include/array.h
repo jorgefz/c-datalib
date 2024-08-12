@@ -1,13 +1,7 @@
-#ifndef ARRAY_H
-#define ARRAY_H
+#ifndef DATALIB_ARRAY_H
+#define DATALIB_ARRAY_H
 
-#include "stdlib.h" /* malloc, free */
-#include "string.h" /* memmove */
-#include "stdint.h" /* uint32_t */
-
-#define DATALIB_ALLOC malloc
-#define DATALIB_FREE  free
-#define DATALIB_MEMMOVE memmove
+#include "defs.h"
 
 /** @struct array_t
 * @brief Data structure with dynamic contiguous storage of generic data.
@@ -124,4 +118,4 @@ array_t* array_pop_front(array_t* array);
 /** @brief Removes all elements on the array */
 array_t* array_clear(array_t* array);
 
-#endif /* ARRAY_H */
+#endif /* DATALIB_ARRAY_H */
