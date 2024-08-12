@@ -25,8 +25,8 @@
 */
 
 
-#ifndef HASHMAP_H
-#define HASHMAP_H
+#ifndef DATALIB_HASHMAP_H
+#define DATALIB_HASHMAP_H
 
 #include "defs.h"
 
@@ -209,4 +209,4 @@ void* hashmap_iterb(hashmap_t* map, const char* key, uint32_t key_length, uint32
 char* hashmap_iter(hashmap_t* map, const char* key);
 
 
-#endif /* HASHMAP_H */
+#endif /* DATALIB_HASHMAP_H */
