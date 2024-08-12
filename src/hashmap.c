@@ -273,8 +273,3 @@ char* hashmap_iter(hashmap_t* map, const char* key){
     size_t key_length = key ? (strlen(key) + 1) : 0;
     return hashmap_iterb(map, key, key_length, NULL);
 }
-
-
-int main(){
-    return 0;
-}
